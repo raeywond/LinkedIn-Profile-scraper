@@ -1,8 +1,14 @@
 {
   "type": "module",
+  "scripts": {
+  "postinstall": "npx puppeteer browsers install chrome",
+  "start": "node api/scrape.js"
+}
+
   "dependencies": {
     "puppeteer": "^20.8.1",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
+
   }
 }
