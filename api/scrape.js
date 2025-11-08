@@ -9,11 +9,8 @@ export default async function handler(req, res) {
   if (!url) return res.status(400).json({ error: 'Missing LinkedIn URL' });
 
   try {
-    const profileData = await scrapeLinkedInProfile(url);
-    if (!profileData) {
-      return res.status(500).json({ error: 'Scrape failed or profile not found' });
-    }
-    return res.status(200).json(profileData);
+    const data = await scrapeLinkedInProfile(url);
+    return res.status(200).json(data);
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
