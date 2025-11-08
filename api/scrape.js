@@ -1,5 +1,6 @@
-const { scrapeLinkedInProfile } = require('../linkedinscraper'); // use relative path
-module.exports = async (req, res) => {
+import { scrapeLinkedInProfile } from '../linkedinscraper.js';
+
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).send('Only POST allowed');
   }
@@ -16,4 +17,4 @@ module.exports = async (req, res) => {
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
-};
+}
