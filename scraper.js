@@ -34,7 +34,7 @@ module.exports.launchBrowser = async function launchBrowser(profileUrl) {
       Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
     });
 
-    const cookies = JSON.parse(fs.readFileSync('cookies.json', 'utf-8'));
+   const cookies = JSON.parse(Buffer.from(process.env.COOKIE_BASE64, 'base64').toString());
     await page.setCookie(...cookies);
     console.log('🍪 Session cookies loaded');
 
