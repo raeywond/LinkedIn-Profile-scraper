@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-  "postinstall": "npx puppeteer browsers install chrome",
+  "postinstall": "npx puppeteer install",
   "start": "node server.js"
 },
 
